@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10151d">
+  <title>Пикер — помощник по драфту Dota 2</title>
+  <link rel="stylesheet" href="style.css?v=5">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">D</span><span>ПИКЕР<small>ПОМОЩНИК ПО ДРАФТУ</small></span></a>
+    <div class="header-links"><span class="patch" id="heroPoolStatus"><i></i> Загружаю полный ростер…</span><a class="patch source-link" href="https://www.dotabuff.com/heroes" target="_blank" rel="noreferrer">Dotabuff ↗</a></div>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">СОБЕРИ СИЛЬНЫЙ ДРАФТ</p>
+      <h1>Следующий пик<br><em>имеет значение.</em></h1>
+      <p class="lead">Выбери таблицу команды, нужную позицию 1–5 и добавляй героев по ходу драфта. Обе команды можно расставить по позициям.</p>
+    </section>
+
+    <section class="controls" aria-label="Настройки подбора">
+      <div class="role-control"><span class="control-label">ПОЗИЦИЯ ДЛЯ СЛЕДУЮЩЕГО ПИКА</span><div class="role-buttons" role="group" aria-label="Позиция для следующего пика">
+        <button class="position" data-position="1">Позиция 1 <b>Керри</b></button><button class="position" data-position="2">Позиция 2 <b>Мид</b></button><button class="position" data-position="3">Позиция 3 <b>Оффлейн</b></button><button class="position" data-position="4">Позиция 4 <b>Хард саппорт</b></button><button class="position active" data-position="5">Позиция 5 <b>Саппорт</b></button>
+      </div></div>
+      <div class="search"><label class="control-label" for="heroSearch">ДОБАВИТЬ ПИК ВО ВРЕМЯ ДРАФТА</label><span class="searchbox"><span>⌕</span><input id="heroSearch" type="search" placeholder="Выбери команду и позицию, затем героя" autocomplete="off"><button id="clearSearch" type="button" aria-label="Очистить поиск">×</button></span><div id="searchResults" class="search-results"></div></div>
+    </section>
+
+    <section class="draft-grid" aria-label="Составы обеих команд; добавляй героев по мере выбора">
+      <article class="team-card ally"><div class="team-head"><div><span class="team-kicker">ВАША КОМАНДА</span><h2><button type="button" class="team-target" data-target-team="ally">Союзники</button></h2></div><span class="count" id="allyCount">0 / 5</span></div><div id="allySlots" class="slots"></div></article>
+      <div class="versus">VS</div>
+      <article class="team-card enemy"><div class="team-head"><div><span class="team-kicker">СОПЕРНИКИ</span><h2><button type="button" class="team-target" data-target-team="enemy">Противники</button></h2></div><span class="count" id="enemyCount">0 / 5</span></div><div id="enemySlots" class="slots"></div></article>
+    </section>
+    <section class="win-chances" aria-live="polite">
+      <div class="win-chance-head"><div><span class="team-kicker">СТАТИСТИЧЕСКАЯ ОЦЕНКА</span><h2>Шансы по текущему драфту</h2></div><span id="chanceMeta" class="recommend-meta">Добавь героев обеих команд</span></div>
+      <div class="chance-row"><strong>Союзники <span id="allyChance">50%</span></strong><div class="chance-track"><i id="chanceBar"></i></div><strong><span id="enemyChance">50%</span> Соперники</strong></div>
+      <p id="chanceDetails" class="chance-details">Расчёт учитывает общий винрейт выбранных героев и их статистику матчапов. Это ориентир, не гарантия победы.</p>
+    </section>
+    <section class="recommendations"><div class="recommend-head"><div><span class="team-kicker">АНАЛИЗ ПИКА</span><h2>Кого выбрать?</h2></div><span id="recommendMeta" class="recommend-meta">Выбери роль и добавь героев</span></div><div id="recommendations" class="recommend-list"></div><p class="disclaimer">Ростер, базовые винрейты и матчапы загружаются из OpenDota. Данные агрегированы; итоговая вероятность — ориентировочная, а не точный прогноз.</p></section>
+    <footer>ПИКЕР <span>·</span> НЕОФИЦИАЛЬНЫЙ ПОМОЩНИК ДЛЯ DOTA 2</footer>
+  </main>
+  <script src="app.js?v=13"></script>
+</body>
+</html>
+
